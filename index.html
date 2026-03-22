@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f8f5f2" />
+  <meta name="description" content="Bombay Fashion Beauty Zone — Wholesaler and Retailer of Salon Items and Cosmetics. All leading brands available." />
+  <title>Bombay Fashion Beauty Zone</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/svg+xml" href="icon.svg" />
+  <style>
+    @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+    @keyframes shimmer{0%{background-position:-400px 0}100%{background-position:400px 0}}
+    @keyframes countUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes gradientShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+    @keyframes fadeSlideLeft{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:translateX(0)}}
+    @keyframes fadeSlideRight{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+    @keyframes scaleIn{from{opacity:0;transform:scale(0.88)}to{opacity:1;transform:scale(1)}}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+    @keyframes devRingRotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+    @keyframes devCardFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+    @keyframes devNameShimmer{0%{background-position:-400px 0}100%{background-position:400px 0}}
+    @keyframes devSkillPop{from{opacity:0;transform:scale(0.7) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}
+    @keyframes devServiceSlide{from{opacity:0;transform:translateX(-26px)}to{opacity:1;transform:translateX(0)}}
+    @keyframes devBtnShimmer{0%{background-position:-300px 0}100%{background-position:300px 0}}
+    @keyframes devCodeBlink{0%,100%{opacity:1}50%{opacity:0.25}}
+    @keyframes devBadgeDrop{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes devAmbientGlow{0%,100%{opacity:0.5;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
+    @keyframes btnCallPulse{0%,100%{box-shadow:0 6px 28px rgba(0,0,0,0.16)}50%{box-shadow:0 6px 28px rgba(0,0,0,0.16),0 0 0 8px rgba(26,26,26,0.07)}}
+    @keyframes btnWaFloat{0%,100%{transform:translateY(0);box-shadow:0 6px 26px rgba(37,211,102,0.36)}50%{transform:translateY(-5px);box-shadow:0 14px 36px rgba(37,211,102,0.5)}}
+    @keyframes btnIconWiggle{0%,100%{transform:rotate(0deg) scale(1)}30%{transform:rotate(-14deg) scale(1.15)}70%{transform:rotate(14deg) scale(1.15)}}
+    @keyframes floatWaBounce{0%,100%{transform:scale(1) rotate(0deg)}30%{transform:scale(1.14) rotate(-8deg)}60%{transform:scale(1.06) rotate(4deg)}}
+    @keyframes navDotPop{from{transform:translateY(-50%) scale(0)}to{transform:translateY(-50%) scale(1)}}
+
+    .shimmer-text{background:linear-gradient(90deg,#c9a96e 0%,#f0d080 40%,#c9a96e 60%,#a8824a 100%);background-size:400px 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 3s linear infinite}
+    .product-card:nth-child(1){transition-delay:.05s}.product-card:nth-child(2){transition-delay:.10s}.product-card:nth-child(3){transition-delay:.15s}.product-card:nth-child(4){transition-delay:.20s}.product-card:nth-child(5){transition-delay:.25s}.product-card:nth-child(6){transition-delay:.30s}.product-card:nth-child(7){transition-delay:.35s}.product-card:nth-child(8){transition-delay:.40s}.product-card:nth-child(9){transition-delay:.45s}
+    .brand-card:nth-child(1){transition-delay:.05s}.brand-card:nth-child(2){transition-delay:.10s}.brand-card:nth-child(3){transition-delay:.15s}.brand-card:nth-child(4){transition-delay:.20s}.brand-card:nth-child(5){transition-delay:.25s}.brand-card:nth-child(6){transition-delay:.30s}
+    .wholesale-card:nth-child(1){transition-delay:.05s}.wholesale-card:nth-child(2){transition-delay:.12s}.wholesale-card:nth-child(3){transition-delay:.19s}.wholesale-card:nth-child(4){transition-delay:.26s}
+    .trust-item:nth-child(1){transition-delay:.05s}.trust-item:nth-child(2){transition-delay:.12s}.trust-item:nth-child(3){transition-delay:.19s}.trust-item:nth-child(4){transition-delay:.26s}
+    .about-badge{animation:floatY 4s ease-in-out infinite}
+    .grad-divider{height:3px;background:linear-gradient(90deg,#f8f5f2,#c9a96e,#f0d080,#c9a96e,#f8f5f2);background-size:300% 100%;animation:gradientShift 4s ease infinite}
+    .hero-bg{will-change:transform}
+    .product-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(201,169,110,0.18),transparent);opacity:0;transition:opacity 0.4s ease}
+    .product-img-wrap{position:relative}
+    .product-card:hover .product-img-wrap::after{opacity:1}
+    .hero-tagline::after{content:'|';color:#c9a96e;animation:blink 1s step-end infinite;margin-left:2px}
+    .salon-card{border:1.5px solid transparent;transition:border-color 0.4s ease,transform 0.35s ease,box-shadow 0.35s ease}
+    .salon-card:hover{border-color:rgba(201,169,110,0.35)}
+    .wholesale-card.visible .ws-num{animation:countUp 0.6s ease forwards}
+    .about-image.visible{animation:fadeSlideLeft 0.75s ease forwards}
+    .about-content.visible{animation:fadeSlideRight 0.75s ease forwards}
+    .split-image.visible{animation:scaleIn 0.7s ease forwards}
+    .contact-card{border-top:3px solid transparent;transition:border-color 0.35s ease,transform 0.35s ease,box-shadow 0.35s ease}
+    .contact-card:hover{border-top-color:var(--gold)}
+    .brand-card:hover .brand-text-logo{color:#c9a96e;transition:color 0.35s ease}
+    #scroll-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,#c9a96e,#f0d080);z-index:2000;transition:width 0.1s linear}
+    .btn-primary{animation:btnCallPulse 3s ease-in-out infinite}
+    .btn-primary:hover{animation:none}
+    .btn-whatsapp{animation:btnWaFloat 3.5s ease-in-out infinite}
+    .btn-whatsapp:hover{animation:none}
+    .btn:hover svg,.dev-btn:hover svg{animation:btnIconWiggle 0.45s ease}
+    .float-wa:hover{animation:floatWaBounce 0.5s ease}
+    .nav-link.active::before{content:'';position:absolute;top:50%;left:-11px;transform:translateY(-50%);width:5px;height:5px;border-radius:50%;background:#c9a96e;animation:navDotPop 0.4s cubic-bezier(0.34,1.56,0.64,1) forwards}
+    .wholesale-cta .btn-primary{animation:btnCallPulse 2.8s ease-in-out infinite}
+    .wholesale-cta .btn-whatsapp{animation:btnWaFloat 3.2s ease-in-out 0.4s infinite}
+    .wholesale-cta .btn-primary:hover,.wholesale-cta .btn-whatsapp:hover{animation:none}
+    .developer-section{background:linear-gradient(158deg,var(--bg-alt) 0%,var(--bg) 55%,var(--bg-alt) 100%);position:relative;overflow:hidden}
+    .developer-section::before{content:'';position:absolute;top:-20%;right:-15%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(201,169,110,0.07) 0%,transparent 65%);pointer-events:none;animation:devAmbientGlow 8s ease-in-out infinite}
+    .dev-layout{display:grid;grid-template-columns:1fr 1.25fr;gap:64px;align-items:center}
+    .dev-card{background:var(--white);border-radius:44px;padding:44px 36px;box-shadow:0 20px 60px rgba(0,0,0,0.13);border:1px solid rgba(201,169,110,0.14);text-align:center;position:relative;overflow:hidden;animation:devCardFloat 5s ease-in-out infinite;transition:box-shadow 0.4s ease}
+    .dev-card:hover{box-shadow:0 32px 80px rgba(0,0,0,0.18),0 0 0 3px rgba(201,169,110,0.18);animation-play-state:paused}
+    .dev-card::before{content:'';position:absolute;top:0;left:-90%;width:55%;height:100%;background:linear-gradient(115deg,transparent,rgba(255,255,255,0.11),transparent);animation:shimmer 5.5s ease-in-out infinite;pointer-events:none}
+    .dev-card::after{content:'';position:absolute;top:0;right:0;width:78px;height:78px;background:linear-gradient(135deg,rgba(201,169,110,0.16) 0%,transparent 65%);border-radius:0 44px 0 78px;pointer-events:none}
+    .dev-avatar{position:relative;width:96px;height:96px;margin:0 auto 22px}
+    .dev-avatar-ring{position:absolute;inset:-5px;border-radius:50%;border:2px dashed rgba(201,169,110,0.38);animation:devRingRotate 12s linear infinite}
+    .dev-avatar-ring::before{content:'';position:absolute;inset:5px;border-radius:50%;border:1px solid rgba(201,169,110,0.13)}
+    .dev-avatar-inner{width:96px;height:96px;border-radius:50%;background:linear-gradient(135deg,var(--bg-alt) 0%,#e8e0d6 100%);border:2px solid rgba(201,169,110,0.2);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;transition:background 0.4s ease,transform 0.4s cubic-bezier(0.34,1.56,0.64,1)}
+    .dev-card:hover .dev-avatar-inner{background:linear-gradient(135deg,rgba(201,169,110,0.13),rgba(240,208,128,0.08));transform:scale(1.07)}
+    .dev-avatar-inner svg{animation:devCodeBlink 3s ease-in-out infinite}
+    .dev-badge-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
+    .dev-badge{font-size:0.67rem;font-weight:600;letter-spacing:0.09em;text-transform:uppercase;padding:4px 12px;border-radius:50px;background:var(--bg-alt);color:var(--text-mid);border:1px solid rgba(201,169,110,0.16);animation:devBadgeDrop 0.5s ease both}
+    .dev-badge:nth-child(2){animation-delay:0.1s}
+    .dev-badge-gold{background:rgba(201,169,110,0.11);color:var(--gold-dark);border-color:rgba(201,169,110,0.28)}
+    .dev-name{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;margin-bottom:4px;background:linear-gradient(90deg,var(--text) 0%,var(--gold-dark) 45%,var(--text) 100%);background-size:300% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:devNameShimmer 4s linear infinite}
+    .dev-title{font-size:0.76rem;color:var(--text-light);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:12px}
+    .dev-desc{font-size:0.85rem;color:var(--text-mid);line-height:1.72;margin-bottom:22px}
+    .dev-skills{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:26px}
+    .dev-skill{font-size:0.71rem;font-weight:600;padding:5px 13px;border-radius:50px;background:var(--bg);color:var(--text-mid);border:1px solid rgba(201,169,110,0.18);cursor:default;transition:background 0.3s ease,color 0.3s ease,transform 0.3s cubic-bezier(0.34,1.56,0.64,1)}
+    .dev-skill:hover{background:rgba(201,169,110,0.12);color:var(--gold-dark);transform:translateY(-3px) scale(1.07)}
+    .dev-card.visible .dev-skill{animation:devSkillPop 0.45s cubic-bezier(0.34,1.56,0.64,1) both}
+    .dev-card.visible .dev-skill:nth-child(1){animation-delay:.10s}.dev-card.visible .dev-skill:nth-child(2){animation-delay:.16s}.dev-card.visible .dev-skill:nth-child(3){animation-delay:.22s}.dev-card.visible .dev-skill:nth-child(4){animation-delay:.28s}.dev-card.visible .dev-skill:nth-child(5){animation-delay:.34s}.dev-card.visible .dev-skill:nth-child(6){animation-delay:.40s}
+    .dev-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:22px}
+    .dev-btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:50px;font-family:'Montserrat',sans-serif;font-size:0.83rem;font-weight:600;letter-spacing:0.04em;white-space:nowrap;position:relative;overflow:hidden;transition:transform 0.35s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.35s ease}
+    .dev-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.18),transparent);background-size:300px 100%;opacity:0;transition:opacity 0.3s ease}
+    .dev-btn:hover::before{opacity:1;animation:devBtnShimmer 1.1s linear infinite}
+    .dev-btn-primary{background:var(--text);color:#fff;animation:btnCallPulse 2.8s ease-in-out infinite}
+    .dev-btn-primary:hover{transform:translateY(-4px) scale(1.03);box-shadow:0 14px 32px rgba(0,0,0,0.24);animation:none}
+    .dev-btn-wa{background:#25d366;color:#fff;animation:btnWaFloat 3.2s ease-in-out 0.3s infinite}
+    .dev-btn-wa:hover{transform:translateY(-4px) scale(1.03);box-shadow:0 14px 32px rgba(37,211,102,0.42);animation:none}
+    .dev-contact-row{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;padding-top:18px;border-top:1px solid rgba(201,169,110,0.13)}
+    .dev-contact-item{display:flex;align-items:center;gap:7px;font-size:0.83rem;color:var(--text-mid)}
+    .dev-contact-item a{color:var(--text);font-weight:600;transition:color 0.3s ease}
+    .dev-contact-item a:hover{color:var(--gold-dark)}
+    .dev-services{display:flex;flex-direction:column;gap:22px}
+    .dev-services-title{font-family:'Playfair Display',serif;font-size:clamp(1.55rem,3vw,2.2rem);font-weight:700;color:var(--text);line-height:1.22}
+    .dev-services-desc{font-size:0.93rem;color:var(--text-mid);line-height:1.82}
+    .dev-service-list{display:flex;flex-direction:column;gap:16px}
+    .dev-service-item{display:flex;align-items:flex-start;gap:16px;padding:18px 20px;background:var(--white);border-radius:22px;box-shadow:0 2px 10px rgba(0,0,0,0.04);border:1px solid rgba(201,169,110,0.09);transition:transform 0.38s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.38s ease,border-color 0.35s ease}
+    .dev-service-item:hover{transform:translateX(9px);box-shadow:0 4px 20px rgba(0,0,0,0.06);border-color:rgba(201,169,110,0.3)}
+    .dev-services.visible .dev-service-item{animation:devServiceSlide 0.52s ease forwards;opacity:0}
+    .dev-services.visible .dev-service-item:nth-child(1){animation-delay:.06s}.dev-services.visible .dev-service-item:nth-child(2){animation-delay:.14s}.dev-services.visible .dev-service-item:nth-child(3){animation-delay:.22s}.dev-services.visible .dev-service-item:nth-child(4){animation-delay:.30s}
+    .dev-service-icon{flex-shrink:0;width:46px;height:46px;background:rgba(201,169,110,0.09);border-radius:13px;display:flex;align-items:center;justify-content:center;transition:background 0.35s ease,transform 0.38s cubic-bezier(0.34,1.56,0.64,1)}
+    .dev-service-item:hover .dev-service-icon{background:rgba(201,169,110,0.18);transform:scale(1.1) rotate(-6deg)}
+    .dev-service-item strong{display:block;font-size:0.91rem;font-weight:600;color:var(--text);margin-bottom:4px;transition:color 0.3s ease}
+    .dev-service-item:hover strong{color:var(--gold-dark)}
+    .dev-service-item span{font-size:0.80rem;color:var(--text-light);line-height:1.52}
+    .dev-cta-final{display:flex;gap:14px;flex-wrap:wrap}
+    @media(max-width:900px){.dev-layout{grid-template-columns:1fr;gap:40px}.dev-card{animation:none}.dev-cta-final{justify-content:flex-start}}
+    @media(max-width:480px){.dev-card{padding:32px 20px}.dev-actions{flex-direction:column}.dev-cta-final{flex-direction:column}.dev-btn,.dev-cta-final .btn{width:100%;justify-content:center}.dev-contact-row{flex-direction:column;align-items:center}}
+    @media(prefers-reduced-motion:reduce){.dev-card,.dev-avatar-ring,.dev-avatar-inner svg,.dev-btn-primary,.dev-btn-wa,.btn-primary,.btn-whatsapp,.float-wa{animation:none!important}}
+  </style>
+</head>
+<body>
+<div id="scroll-progress"></div>
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="#home" class="nav-logo">Bombay Fashion Beauty Zone</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#products" class="nav-link">Products</a></li>
+      <li><a href="#salon" class="nav-link">Salon</a></li>
+      <li><a href="#brands" class="nav-link">Brands</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-image-wrap">
+    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1800&q=85&auto=format&fit=crop" alt="Professional salon hair styling" class="hero-bg" loading="eager" />
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="hero-content">
+    <p class="hero-tagline">Premium Cosmetic Destination</p>
+    <h1 class="hero-title">Professional Cosmetic<br>Wholesaler &amp; Retailer</h1>
+    <p class="hero-sub">All Salon &amp; Cosmetic Brands Available</p>
+    <div class="hero-cta">
+      <a href="tel:9818804433" class="btn btn-primary">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.86 19.86 0 013.1 4.18 2 2 0 015.09 2h3a2 2 0 012 1.72c.13 1 .37 1.97.73 2.9a2 2 0 01-.45 2.11L9.09 9.91a16 16 0 006.99 7l1.18-1.18a2 2 0 012.11-.45c.93.36 1.9.6 2.9.73A2 2 0 0122 16.92z"/></svg>
+        Call Now
+      </a>
+      <a href="https://wa.me/919818804433" target="_blank" rel="noopener" class="btn btn-whatsapp">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<div class="grad-divider"></div>
+
+<!-- TRUST BAR -->
+<section class="trust-bar">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon"><svg width="28" height="28" fill="none" stroke="#c9a96e" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div><strong>100% Genuine</strong><span>Authentic products only</span></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><svg width="28" height="28" fill="none" stroke="#c9a96e" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div><strong>Fast Delivery</strong><span>Pan India shipping</span></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><svg width="28" height="28" fill="none" stroke="#c9a96e" stroke-width="1.8" viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
+        <div><strong>Wholesale Prices</strong><span>Best trade rates</span></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><svg width="28" height="28" fill="none" stroke="#c9a96e" stroke-width="1.8" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <div><strong>All Brands</strong><span>Leading salon brands</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="grad-divider"></div>
+<!-- PRODUCTS -->
+<section class="section" id="products">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">Our Range</p>
+      <h2 class="section-title">Premium Beauty Products</h2>
+      <p class="section-desc">Wholesaler and Retailer of Salon Items and Cosmetics — sourced from the most trusted brands in the industry.</p>
+    </div>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1617897903246-719242758050?w=600&q=80&auto=format&fit=crop" alt="Hair Serum" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1585302099695-4d3f02f12e5b?w=600&q=80&auto=format&fit=crop'" />
+        </div>
+        <div class="product-info">
+          <h3>Hair Serum</h3>
+          <p>Frizz control, shine boost and heat protection serums from premium brands.</p>
+          <span class="product-tag">Wholesale Available</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1631729371254-42c2892f0e6e?w=600&q=80&auto=format&fit=crop" alt="Shampoo" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600&q=80&auto=format&fit=crop'" />
+        </div>
+        <div class="product-info">
+          <h3>Shampoo</h3>
+          <p>Professional-grade shampoos for all hair types — dry, oily, damaged and colored.</p>
+          <span class="product-tag">All Brands</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=600&q=80&auto=format&fit=crop" alt="Conditioner" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=600&q=80&auto=format&fit=crop'" />
+        </div>
+        <div class="product-info">
+          <h3>Conditioner</h3>
+          <p>Deep conditioning treatments and daily conditioners for smooth, healthy hair.</p>
+          <span class="product-tag">Retail &amp; Bulk</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600&q=80&auto=format&fit=crop" alt="Hair Color" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80&auto=format&fit=crop'" />
+        </div>
+        <div class="product-info">
+          <h3>Hair Color</h3>
+          <p>Complete range of permanent, semi-permanent and fashion hair colors.</p>
+          <span class="product-tag">Wholesale Available</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1522337913901-ef5359571616?w=600&q=80&auto=format&fit=crop" alt="Hair Spray" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1619451334792-150fd785ee74?w=600&q=80&auto=format&fit=crop'" />
+        </div>
+        <div class="product-info">
+          <h3>Hair Spray</h3>
+          <p>Strong hold, flexible hold and shine sprays for every styling need.</p>
+          <span class="product-tag">All Brands</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=600&q=80&auto=format&fit=crop" alt="Face Cream" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1571875257727-256c39da42af?w=600&q=80&auto=format&fit=crop'" />
+        </div>
+        <div class="product-info">
+          <h3>Face Cream</h3>
+          <p>Moisturizers, night creams and anti-aging formulations for all skin types.</p>
+          <span class="product-tag">Retail &amp; Bulk</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=600&q=80&auto=format&fit=crop" alt="Skin Serum" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600&q=80&auto=format&fit=crop'" />
+        </div>
+        <div class="product-info">
+          <h3>Skin Serum</h3>
+          <p>Vitamin C, hyaluronic acid and brightening serums for radiant skin.</p>
+          <span class="product-tag">Wholesale Available</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600&q=80&auto=format&fit=crop" alt="Makeup Kit" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600&q=80&auto=format&fit=crop'" />
+        </div>
+        <div class="product-info">
+          <h3>Makeup Kit</h3>
+          <p>Complete professional makeup kits, palettes and accessories for artists and salons.</p>
+          <span class="product-tag">All Brands</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600&q=80&auto=format&fit=crop" alt="Beauty Kit" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&q=80&auto=format&fit=crop'" />
+        </div>
+        <div class="product-info">
+          <h3>Beauty Kit</h3>
+          <p>Curated beauty kits for skincare, grooming and complete personal care routines.</p>
+          <span class="product-tag">Retail &amp; Bulk</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="grad-divider"></div>
+<!-- HAIRCARE -->
+<section class="section section-alt" id="haircare">
+  <div class="container">
+    <div class="split-layout">
+      <div class="split-image">
+        <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=900&q=80&auto=format&fit=crop" alt="Professional haircare treatment" loading="lazy" />
+      </div>
+      <div class="split-content">
+        <p class="section-label">Haircare</p>
+        <h2 class="section-title left">Complete Haircare Solutions</h2>
+        <p>We supply the full spectrum of professional haircare products — from shampoos and conditioners to keratin treatments, hair masks, color kits and styling agents. Whether you run a salon or buy for personal use, we have the right product at the right price.</p>
+        <ul class="feature-list">
+          <li>Keratin &amp; Protein Treatments</li>
+          <li>Hair Oils &amp; Growth Serums</li>
+          <li>Professional Color Kits</li>
+          <li>Anti-Dandruff Range</li>
+          <li>Heat Protection Sprays</li>
+          <li>Hair Masks &amp; Deep Conditioners</li>
+        </ul>
+        <div class="inline-cta">
+          <a href="tel:9818804433" class="btn btn-primary">Enquire Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="grad-divider"></div>
+
+<!-- SKINCARE -->
+<section class="section" id="skincare">
+  <div class="container">
+    <div class="split-layout reverse">
+      <div class="split-image">
+        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=900&q=80&auto=format&fit=crop" alt="Skincare products and routine" loading="lazy" />
+      </div>
+      <div class="split-content">
+        <p class="section-label">Skincare</p>
+        <h2 class="section-title left">Premium Skincare Range</h2>
+        <p>Our skincare portfolio covers everything a professional salon or retail customer needs — cleansers, toners, moisturizers, sunscreens, face masks and advanced serums from India's most trusted brands.</p>
+        <ul class="feature-list">
+          <li>Cleansers &amp; Face Washes</li>
+          <li>Toners &amp; Mists</li>
+          <li>Moisturizers &amp; Sunscreens</li>
+          <li>Vitamin C &amp; Brightening Serums</li>
+          <li>Face Packs &amp; Sheet Masks</li>
+          <li>Under-Eye &amp; Anti-Aging Creams</li>
+        </ul>
+        <div class="inline-cta">
+          <a href="https://wa.me/919818804433" target="_blank" rel="noopener" class="btn btn-whatsapp">WhatsApp Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="grad-divider"></div>
+<!-- SALON EQUIPMENT -->
+<section class="section section-alt" id="salon">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">Salon Equipment</p>
+      <h2 class="section-title">Professional Salon Tools</h2>
+      <p class="section-desc">Everything your salon needs — from styling chairs and dryers to professional scissors and color bowls.</p>
+    </div>
+    <div class="salon-grid">
+      <div class="salon-card">
+        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=700&q=80&auto=format&fit=crop" alt="Professional salon styling chair" loading="lazy" />
+        <div class="salon-card-info">
+          <h3>Salon Chairs &amp; Furniture</h3>
+          <p>Hydraulic styling chairs, reception furniture and salon trolleys.</p>
+        </div>
+      </div>
+      <div class="salon-card">
+        <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=700&q=80&auto=format&fit=crop" alt="Professional hair dryer and styling tools" loading="lazy" />
+        <div class="salon-card-info">
+          <h3>Hair Dryers &amp; Styling Tools</h3>
+          <p>Professional ionic and ceramic hair dryers, straighteners and curlers.</p>
+        </div>
+      </div>
+      <div class="salon-card">
+        <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=700&q=80&auto=format&fit=crop" alt="Salon scissors and professional cutting tools" loading="lazy" />
+        <div class="salon-card-info">
+          <h3>Scissors &amp; Cutting Tools</h3>
+          <p>Professional cutting shears, thinning scissors and barber tools.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="grad-divider"></div>
+
+<!-- BRANDS -->
+<section class="section" id="brands">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">Our Brands</p>
+      <h2 class="section-title">Leading Salon &amp; Cosmetic Brands</h2>
+      <p class="section-desc">All leading salon and cosmetic brands available — at wholesale and retail prices.</p>
+    </div>
+    <div class="brands-grid">
+      <div class="brand-card">
+        <div class="brand-logo-wrap brand-text-logo" style="font-size:2rem;letter-spacing:0.05em;">Lakme</div>
+        <p class="brand-name">Lakme</p>
+        <p class="brand-cat">Makeup &amp; Skincare</p>
+      </div>
+      <div class="brand-card">
+        <div class="brand-logo-wrap brand-text-logo" style="font-size:1.6rem;letter-spacing:0.03em;">L'Oreal</div>
+        <p class="brand-name">L'Oreal</p>
+        <p class="brand-cat">Hair &amp; Beauty</p>
+      </div>
+      <div class="brand-card">
+        <div class="brand-logo-wrap brand-text-logo" style="font-size:2rem;letter-spacing:0.08em;">Matrix</div>
+        <p class="brand-name">Matrix</p>
+        <p class="brand-cat">Professional Hair</p>
+      </div>
+      <div class="brand-card">
+        <div class="brand-logo-wrap brand-text-logo" style="font-size:1.8rem;letter-spacing:0.04em;">Streax</div>
+        <p class="brand-name">Streax</p>
+        <p class="brand-cat">Hair Color &amp; Care</p>
+      </div>
+      <div class="brand-card">
+        <div class="brand-logo-wrap brand-text-logo" style="font-size:1.2rem;letter-spacing:0.04em;">Schwarzkopf</div>
+        <p class="brand-name">Schwarzkopf</p>
+        <p class="brand-cat">Professional Salon</p>
+      </div>
+      <div class="brand-card">
+        <div class="brand-logo-wrap brand-text-logo" style="font-size:2rem;letter-spacing:0.06em;">Wella</div>
+        <p class="brand-name">Wella</p>
+        <p class="brand-cat">Hair Color &amp; Styling</p>
+      </div>
+    </div>
+    <p class="brands-note">And many more leading Indian and international brands available in stock.</p>
+  </div>
+</section>
+<div class="grad-divider"></div>
+<!-- WHOLESALE -->
+<section class="section section-alt" id="wholesale">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">Wholesale</p>
+      <h2 class="section-title">Bulk &amp; Wholesale Supply</h2>
+      <p class="section-desc">Best trade prices for salons, retailers and distributors across India.</p>
+    </div>
+    <div class="wholesale-grid">
+      <div class="wholesale-card">
+        <div class="ws-num">01</div>
+        <h3>Salon Owners</h3>
+        <p>Special pricing for salon owners buying in bulk. Get all professional brands at the best margins.</p>
+      </div>
+      <div class="wholesale-card">
+        <div class="ws-num">02</div>
+        <h3>Distributors</h3>
+        <p>Become a distributor partner. Wide product range, consistent stock, and competitive wholesale rates.</p>
+      </div>
+      <div class="wholesale-card">
+        <div class="ws-num">03</div>
+        <h3>Retailers</h3>
+        <p>Stock your store with the latest cosmetic brands. Minimum order quantities available for all retailers.</p>
+      </div>
+      <div class="wholesale-card">
+        <div class="ws-num">04</div>
+        <h3>Institutions</h3>
+        <p>Beauty academies and training institutes get special trade rates on professional products and kits.</p>
+      </div>
+    </div>
+    <div class="wholesale-cta">
+      <p>Ready to place a bulk order? Contact us directly.</p>
+      <div class="cta-group">
+        <a href="tel:9818804433" class="btn btn-primary">Call: 9818804433</a>
+        <a href="https://wa.me/919818804433" target="_blank" rel="noopener" class="btn btn-whatsapp">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="grad-divider"></div>
+
+<!-- RETAIL — FIXED IMAGE -->
+<section class="section" id="retail">
+  <div class="container">
+    <div class="split-layout">
+      <div class="split-image">
+        <img
+          src="https://images.unsplash.com/photo-1487412947147-5cebf100d4a6?w=900&q=80&auto=format&fit=crop"
+          alt="Retail cosmetics shopping"
+          loading="lazy"
+          onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=900&q=80&auto=format&fit=crop'"
+        />
+      </div>
+      <div class="split-content">
+        <p class="section-label">Retail</p>
+        <h2 class="section-title left">Shop Retail</h2>
+        <p>Not buying in bulk? No problem. We serve individual customers with the same quality and care. Walk in or call us to order your favourite cosmetic products at competitive retail prices.</p>
+        <ul class="feature-list">
+          <li>Single unit purchases welcome</li>
+          <li>All top brands in stock</li>
+          <li>Genuine, sealed products</li>
+          <li>Expert product guidance</li>
+          <li>Doorstep delivery options</li>
+        </ul>
+        <div class="inline-cta">
+          <a href="tel:9818804433" class="btn btn-primary">Order Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="grad-divider"></div>
+<!-- ABOUT -->
+<section class="section section-alt" id="about">
+  <div class="container">
+    <div class="about-layout">
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=900&q=80&auto=format&fit=crop" alt="Beauty salon interior" loading="lazy" />
+        <div class="about-badge">
+          <strong>Trusted</strong>
+          <span>Wholesaler &amp; Retailer</span>
+        </div>
+      </div>
+      <div class="about-content">
+        <p class="section-label">About Us</p>
+        <h2 class="section-title left">Bombay Fashion Beauty Zone</h2>
+        <p class="about-highlight">Wholesaler and Retailer of Salon Items and Cosmetics</p>
+        <p>Bombay Fashion Beauty Zone is a premier destination for professional salon products and cosmetics in India. We have built our reputation on supplying authentic, high-quality products from the world's most respected beauty brands.</p>
+        <p>We serve salon owners, beauty professionals, distributors and retail customers — offering one of the widest selections of haircare, skincare, makeup and salon equipment under one roof.</p>
+        <p>Our commitment is simple: genuine products, best prices, and reliable service.</p>
+        <div class="about-stats">
+          <div class="stat"><strong>500+</strong><span>Products</span></div>
+          <div class="stat"><strong>20+</strong><span>Brands</span></div>
+          <div class="stat"><strong>Pan India</strong><span>Delivery</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="grad-divider"></div>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">Contact</p>
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="section-desc">We are here to help with orders, enquiries and wholesale queries.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card contact-card-main">
+        <div class="contact-icon">
+          <svg width="32" height="32" fill="none" stroke="#c9a96e" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.86 19.86 0 013.1 4.18 2 2 0 015.09 2h3a2 2 0 012 1.72c.13 1 .37 1.97.73 2.9a2 2 0 01-.45 2.11L9.09 9.91a16 16 0 006.99 7l1.18-1.18a2 2 0 012.11-.45c.93.36 1.9.6 2.9.73A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <h3>Call Us</h3>
+        <p>Our team is ready to take your order or answer any queries.</p>
+        <a href="tel:9818804433" class="contact-link">9818804433</a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="#c9a96e"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </div>
+        <h3>WhatsApp</h3>
+        <p>Message us directly on WhatsApp for quick responses and order placement.</p>
+        <a href="https://wa.me/919818804433" target="_blank" rel="noopener" class="contact-link wa-link">Chat on WhatsApp</a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">
+          <svg width="32" height="32" fill="none" stroke="#c9a96e" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3>Visit Us</h3>
+        <p>Delhi, India</p>
+        <span class="contact-link">Bombay Fashion Beauty Zone</span>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="grad-divider"></div>
+<!-- DEVELOPER SECTION -->
+<section class="section developer-section" id="developer">
+  <div class="container">
+    <div class="dev-layout">
+      <div class="dev-card">
+        <div class="dev-avatar">
+          <div class="dev-avatar-ring"></div>
+          <div class="dev-avatar-inner">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"/>
+              <polyline points="8 6 2 12 8 18"/>
+            </svg>
+          </div>
+        </div>
+        <div class="dev-badge-row">
+          <span class="dev-badge">Full Stack Developer</span>
+          <span class="dev-badge dev-badge-gold">PWA Expert</span>
+        </div>
+        <h2 class="dev-name">Adeeb Alam</h2>
+        <p class="dev-title">Website Designed &amp; Developed by</p>
+        <p class="dev-desc">Professional web developer specialising in modern PWA websites, mobile-first design and premium UI/UX experiences.</p>
+        <div class="dev-skills">
+          <span class="dev-skill">HTML5</span>
+          <span class="dev-skill">CSS3</span>
+          <span class="dev-skill">JavaScript</span>
+          <span class="dev-skill">PWA</span>
+          <span class="dev-skill">Responsive</span>
+          <span class="dev-skill">UI/UX</span>
+        </div>
+        <div class="dev-actions">
+          <a href="tel:9599173491" class="dev-btn dev-btn-primary">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.86 19.86 0 013.1 4.18 2 2 0 015.09 2h3a2 2 0 012 1.72c.13 1 .37 1.97.73 2.9a2 2 0 01-.45 2.11L9.09 9.91a16 16 0 006.99 7l1.18-1.18a2 2 0 012.11-.45c.93.36 1.9.6 2.9.73A2 2 0 0122 16.92z"/></svg>
+            Call Developer
+          </a>
+          <a href="https://wa.me/919599173491" target="_blank" rel="noopener" class="dev-btn dev-btn-wa">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+        <div class="dev-contact-row">
+          <div class="dev-contact-item">
+            <svg width="14" height="14" fill="none" stroke="#c9a96e" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.86 19.86 0 013.1 4.18 2 2 0 015.09 2h3a2 2 0 012 1.72c.13 1 .37 1.97.73 2.9a2 2 0 01-.45 2.11L9.09 9.91a16 16 0 006.99 7l1.18-1.18a2 2 0 012.11-.45c.93.36 1.9.6 2.9.73A2 2 0 0122 16.92z"/></svg>
+            <a href="tel:9599173491">9599173491</a>
+          </div>
+          <div class="dev-contact-item">
+            <svg width="14" height="14" fill="none" stroke="#c9a96e" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Delhi, India</span>
+          </div>
+        </div>
+      </div>
+      <div class="dev-services">
+        <p class="section-label">Developer Services</p>
+        <h3 class="dev-services-title">Need a Website Like This?</h3>
+        <p class="dev-services-desc">Get a fully custom, mobile-first PWA website built for your business — premium design, fast performance and all features included.</p>
+        <div class="dev-service-list">
+          <div class="dev-service-item">
+            <div class="dev-service-icon"><svg width="22" height="22" fill="none" stroke="#c9a96e" stroke-width="1.7" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+            <div><strong>Business Websites</strong><span>Clean, premium websites for any business type</span></div>
+          </div>
+          <div class="dev-service-item">
+            <div class="dev-service-icon"><svg width="22" height="22" fill="none" stroke="#c9a96e" stroke-width="1.7" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+            <div><strong>PWA Apps</strong><span>Installable progressive web apps for mobile</span></div>
+          </div>
+          <div class="dev-service-item">
+            <div class="dev-service-icon"><svg width="22" height="22" fill="none" stroke="#c9a96e" stroke-width="1.7" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></div>
+            <div><strong>Landing Pages</strong><span>High-converting pages for products &amp; services</span></div>
+          </div>
+          <div class="dev-service-item">
+            <div class="dev-service-icon"><svg width="22" height="22" fill="none" stroke="#c9a96e" stroke-width="1.7" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+            <div><strong>Performance &amp; SEO</strong><span>Fast loading, optimised and search-ready</span></div>
+          </div>
+        </div>
+        <div class="dev-cta-final">
+          <a href="tel:9599173491" class="btn btn-primary">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.86 19.86 0 013.1 4.18 2 2 0 015.09 2h3a2 2 0 012 1.72c.13 1 .37 1.97.73 2.9a2 2 0 01-.45 2.11L9.09 9.91a16 16 0 006.99 7l1.18-1.18a2 2 0 012.11-.45c.93.36 1.9.6 2.9.73A2 2 0 0122 16.92z"/></svg>
+            Call: 9599173491
+          </a>
+          <a href="https://wa.me/919599173491" target="_blank" rel="noopener" class="btn btn-whatsapp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp Developer
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="grad-divider"></div>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="footer-logo">Bombay Fashion Beauty Zone</span>
+        <p>Wholesaler and Retailer of Salon Items and Cosmetics. Serving beauty professionals across India.</p>
+        <div class="footer-socials">
+          <a href="tel:9818804433" aria-label="Call">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.86 19.86 0 013.1 4.18 2 2 0 015.09 2h3a2 2 0 012 1.72c.13 1 .37 1.97.73 2.9a2 2 0 01-.45 2.11L9.09 9.91a16 16 0 006.99 7l1.18-1.18a2 2 0 012.11-.45c.93.36 1.9.6 2.9.73A2 2 0 0122 16.92z"/></svg>
+          </a>
+          <a href="https://wa.me/919818804433" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#haircare">Haircare</a></li>
+          <li><a href="#skincare">Skincare</a></li>
+          <li><a href="#salon">Salon Equipment</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Business</h4>
+        <ul>
+          <li><a href="#brands">Brands</a></li>
+          <li><a href="#wholesale">Wholesale</a></li>
+          <li><a href="#retail">Retail</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact-info">
+        <h4>Contact</h4>
+        <p><a href="tel:9818804433">9818804433</a></p>
+        <p><a href="https://wa.me/919818804433" target="_blank" rel="noopener">WhatsApp Us</a></p>
+        <p>Delhi, India</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Bombay Fashion Beauty Zone — Wholesaler and Retailer of Salon Items and Cosmetics</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/919818804433" target="_blank" rel="noopener" class="float-wa" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<script>
+if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js');})}
+
+const progressBar=document.getElementById('scroll-progress');
+window.addEventListener('scroll',()=>{const s=window.scrollY;const d=document.documentElement.scrollHeight-window.innerHeight;if(progressBar)progressBar.style.width=(s/d*100)+'%';},{passive:true});
+
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{if(navbar)navbar.classList.toggle('scrolled',window.scrollY>60);},{passive:true});
+
+const navToggle=document.getElementById('navToggle');
+const navMenu=document.getElementById('navMenu');
+const overlay=document.createElement('div');
+overlay.style.cssText='display:none;position:fixed;inset:0;background:rgba(0,0,0,0.42);z-index:1040;transition:opacity 0.3s ease;opacity:0;';
+document.body.appendChild(overlay);
+function openNav(){navMenu.classList.add('open');navToggle.classList.add('active');overlay.style.display='block';setTimeout(()=>overlay.style.opacity='1',10);document.body.style.overflow='hidden';}
+function closeNav(){navMenu.classList.remove('open');navToggle.classList.remove('active');overlay.style.opacity='0';setTimeout(()=>{overlay.style.display='none';},300);document.body.style.overflow='';}
+navToggle.addEventListener('click',()=>{navMenu.classList.contains('open')?closeNav():openNav();});
+overlay.addEventListener('click',closeNav);
+document.querySelectorAll('.nav-link').forEach(l=>l.addEventListener('click',closeNav));
+
+const sections=document.querySelectorAll('section[id]');
+const navLinks=document.querySelectorAll('.nav-link');
+window.addEventListener('scroll',()=>{let c='';sections.forEach(s=>{if(window.scrollY>=s.offsetTop-140)c=s.id;});navLinks.forEach(l=>{l.classList.remove('active');if(l.getAttribute('href')==='#'+c)l.classList.add('active');});},{passive:true});
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){const t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();window.scrollTo({top:t.offsetTop-80,behavior:'smooth'});}});});
+
+const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});},{threshold:0.08});
+document.querySelectorAll('.product-card,.salon-card,.brand-card,.wholesale-card,.contact-card,.trust-item,.split-layout,.about-layout,.about-image,.about-content,.split-image,.section-header,.wholesale-cta,.brands-note,.dev-card,.dev-services').forEach(el=>{el.classList.add('fade-up');observer.observe(el);});
+
+const heroBg=document.querySelector('.hero-bg');
+window.addEventListener('scroll',()=>{if(heroBg&&window.scrollY<window.innerHeight)heroBg.style.transform=`translateY(${window.scrollY*0.28}px)`;},{passive:true});
+
+function animateCounter(el,target,suffix){let start=0;const dur=1800;const step=(ts)=>{if(!start)start=ts;const p=Math.min((ts-start)/dur,1);const e=1-Math.pow(1-p,3);el.textContent=Math.floor(e*target)+suffix;if(p<1)requestAnimationFrame(step);};requestAnimationFrame(step);}
+const statsObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){const s=document.querySelectorAll('.stat strong');s[0]&&animateCounter(s[0],500,'+');s[1]&&animateCounter(s[1],20,'+');statsObs.disconnect();}});},{threshold:0.5});
+const statsSection=document.querySelector('.about-stats');
+if(statsSection)statsObs.observe(statsSection);
+
+const footerEl=document.querySelector('.footer');
+if(footerEl){const fIO=new IntersectionObserver(([e])=>{if(e.isIntersecting){footerEl.classList.add('in-view');fIO.unobserve(footerEl);}},{threshold:0.12});fIO.observe(footerEl);}
+
+document.querySelectorAll('img').forEach(img=>{img.style.opacity='1';img.addEventListener('error',function(){if(!this.dataset.fb){this.dataset.fb='1';const f=['https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&q=80','https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600&q=80','https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=600&q=80'];this.src=f[Math.floor(Math.random()*f.length)];}});});
+</script>
+</body>
+</html>
