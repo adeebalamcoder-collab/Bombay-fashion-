@@ -1078,3 +1078,1142 @@ ul { list-style: none; }
   .cta-group     { flex-direction: column; align-items: center; }
   .about-stats   { flex-direction: column; gap: 14px; }
 }
+/* ═══════════════════════════════════════════════════════════════
+   BOMBAY FASHION BEAUTY ZONE — style.css ADDON
+   Paste this BELOW your existing style.css (all 4 parts)
+   Part 1: Keyframes, Hero enhancements, Navbar polish
+═══════════════════════════════════════════════════════════════ */
+
+/* ──────────────────────────────────────────
+   GLOBAL KEYFRAMES
+────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(36px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-48px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(48px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.86); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes rotateIn {
+  from { opacity: 0; transform: rotate(-8deg) scale(0.9); }
+  to   { opacity: 1; transform: rotate(0deg) scale(1); }
+}
+@keyframes floatUpDown {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+@keyframes pulseGold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201,169,110,0); }
+  50%       { box-shadow: 0 0 0 12px rgba(201,169,110,0.18); }
+}
+@keyframes shimmerGold {
+  0%   { background-position: -600px 0; }
+  100% { background-position: 600px 0; }
+}
+@keyframes gradientFlow {
+  0%,100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+@keyframes borderGlow {
+  0%,100% { border-color: rgba(201,169,110,0.15); }
+  50%      { border-color: rgba(201,169,110,0.55); }
+}
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(14px) scale(0.9); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes lineExpand {
+  from { width: 0; }
+  to   { width: 60px; }
+}
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes ripple {
+  0%   { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+@keyframes blinkCursor {
+  0%,100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+@keyframes navLinkSlide {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes heroTaglinePop {
+  0%   { opacity: 0; letter-spacing: 0.5em; }
+  100% { opacity: 1; letter-spacing: 0.24em; }
+}
+@keyframes heroTitleReveal {
+  0%   { opacity: 0; transform: translateY(40px) skewY(3deg); }
+  100% { opacity: 1; transform: translateY(0) skewY(0deg); }
+}
+@keyframes heroBtnPop {
+  0%   { opacity: 0; transform: scale(0.8) translateY(20px); }
+  70%  { transform: scale(1.04) translateY(-4px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes overlayFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes scrollLinePulse {
+  0%,100% { opacity: 0.3; transform: scaleY(1); }
+  50%      { opacity: 1;   transform: scaleY(1.2); }
+}
+@keyframes badgeFloat {
+  0%,100% { transform: translateY(0) rotate(-1deg); }
+  50%      { transform: translateY(-10px) rotate(1deg); }
+}
+@keyframes statPop {
+  0%   { opacity: 0; transform: scale(0.7) translateY(16px); }
+  70%  { transform: scale(1.08) translateY(-4px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes cardHoverLift {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-10px); }
+}
+@keyframes tagShimmer {
+  0%   { background-position: -200px 0; }
+  100% { background-position: 200px 0; }
+}
+@keyframes sectionLabelSlide {
+  from { opacity: 0; transform: translateX(-24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes dividerExpand {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+@keyframes imagePan {
+  0%   { object-position: center top; }
+  50%  { object-position: center center; }
+  100% { object-position: center top; }
+}
+@keyframes glassReflect {
+  0%   { left: -80%; }
+  100% { left: 130%; }
+}
+@keyframes trustIconSpin {
+  0%   { transform: rotate(0deg) scale(1); }
+  25%  { transform: rotate(8deg) scale(1.12); }
+  75%  { transform: rotate(-8deg) scale(1.12); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+@keyframes wsNumCount {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes footerLinkReveal {
+  from { opacity: 0; transform: translateX(-12px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes progressGlow {
+  0%,100% { box-shadow: none; }
+  50%      { box-shadow: 0 0 12px rgba(201,169,110,0.6); }
+}
+
+/* ──────────────────────────────────────────
+   SCROLL PROGRESS BAR
+────────────────────────────────────────── */
+#scroll-progress {
+  animation: progressGlow 2.5s ease infinite;
+}
+
+/* ──────────────────────────────────────────
+   NAVBAR — ENHANCED
+────────────────────────────────────────── */
+
+/* Logo text shimmer on hover */
+.nav-logo {
+  position: relative;
+  display: inline-block;
+  transition: all 0.4s ease;
+}
+.nav-logo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(201,169,110,0.35) 40%,
+    transparent 100%
+  );
+  background-size: 300% 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  border-radius: 4px;
+}
+.nav-logo:hover::before {
+  opacity: 1;
+  animation: shimmerGold 1.4s linear infinite;
+}
+
+/* Nav link underline animated expand from center */
+.nav-link::after {
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Mobile menu links stagger in */
+.nav-menu.open .nav-link:nth-child(1) { animation: navLinkSlide 0.32s ease forwards 0.05s; opacity:0; }
+.nav-menu.open .nav-link:nth-child(2) { animation: navLinkSlide 0.32s ease forwards 0.10s; opacity:0; }
+.nav-menu.open .nav-link:nth-child(3) { animation: navLinkSlide 0.32s ease forwards 0.15s; opacity:0; }
+.nav-menu.open .nav-link:nth-child(4) { animation: navLinkSlide 0.32s ease forwards 0.20s; opacity:0; }
+.nav-menu.open .nav-link:nth-child(5) { animation: navLinkSlide 0.32s ease forwards 0.25s; opacity:0; }
+.nav-menu.open .nav-link:nth-child(6) { animation: navLinkSlide 0.32s ease forwards 0.30s; opacity:0; }
+
+/* Hamburger lines morph smoothly */
+.nav-toggle span {
+  transform-origin: center;
+  transition: transform 0.38s cubic-bezier(0.4,0,0.2,1),
+              opacity   0.28s ease,
+              background 0.3s ease;
+}
+.nav-toggle:hover span { background: var(--gold); }
+
+/* ──────────────────────────────────────────
+   HERO — ENHANCED
+────────────────────────────────────────── */
+
+/* Staggered hero content animations */
+.hero-content {
+  animation: none; /* override original */
+}
+.hero-tagline {
+  animation: heroTaglinePop 1.0s cubic-bezier(0.4,0,0.2,1) 0.3s both;
+}
+.hero-title {
+  animation: heroTitleReveal 0.9s cubic-bezier(0.4,0,0.2,1) 0.55s both;
+}
+.hero-sub {
+  animation: fadeInUp 0.8s ease 0.85s both;
+}
+.hero-cta .btn:nth-child(1) {
+  animation: heroBtnPop 0.75s cubic-bezier(0.4,0,0.2,1) 1.0s both;
+}
+.hero-cta .btn:nth-child(2) {
+  animation: heroBtnPop 0.75s cubic-bezier(0.4,0,0.2,1) 1.15s both;
+}
+
+/* Hero overlay animated fade */
+.hero-overlay {
+  animation: overlayFade 1.2s ease forwards;
+}
+
+/* Scroll hint */
+.scroll-line {
+  animation: scrollLinePulse 2s ease-in-out infinite;
+}
+.hero-scroll-hint {
+  animation: fadeInUp 1s ease 1.5s both;
+}
+
+/* Hero image subtle slow pan */
+.hero-bg {
+  animation: imagePan 18s ease-in-out infinite;
+}
+
+/* ──────────────────────────────────────────
+   GRADIENT DIVIDER
+────────────────────────────────────────── */
+.grad-divider {
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    #c9a96e 20%,
+    #f0d080 50%,
+    #c9a96e 80%,
+    transparent 100%
+  );
+  background-size: 300% 100%;
+  animation: gradientFlow 4s ease infinite;
+  transform-origin: left;
+}
+
+/* ═══ END PART 1 — paste Part 2 immediately below ═══ */
+/* ═══════════════════════════════════════════════════════════════
+   ADDON Part 2: Trust Bar, Section Headers, Products, Split
+═══════════════════════════════════════════════════════════════ */
+
+/* ──────────────────────────────────────────
+   TRUST BAR — ENHANCED
+────────────────────────────────────────── */
+.trust-bar {
+  position: relative;
+  overflow: hidden;
+}
+.trust-bar::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(201,169,110,0.04) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* Trust icon hover spin */
+.trust-item:hover .trust-icon {
+  animation: trustIconSpin 0.6s ease;
+  background: rgba(201,169,110,0.1);
+}
+.trust-icon {
+  transition: background 0.35s ease;
+}
+
+/* Trust item slide in stagger when visible */
+.trust-item.visible {
+  animation: fadeInUp 0.55s ease forwards;
+}
+.trust-item:nth-child(1).visible { animation-delay: 0.05s; }
+.trust-item:nth-child(2).visible { animation-delay: 0.12s; }
+.trust-item:nth-child(3).visible { animation-delay: 0.19s; }
+.trust-item:nth-child(4).visible { animation-delay: 0.26s; }
+
+/* Trust item bottom highlight on hover */
+.trust-item {
+  position: relative;
+  padding: 12px 10px;
+  border-radius: 12px;
+  transition: background 0.35s ease;
+}
+.trust-item:hover { background: rgba(201,169,110,0.06); }
+
+/* ──────────────────────────────────────────
+   SECTION HEADERS — ENHANCED
+────────────────────────────────────────── */
+.section-label {
+  position: relative;
+  display: inline-block;
+}
+.section-label::before {
+  content: '';
+  position: absolute;
+  left: 50%; bottom: -6px;
+  transform: translateX(-50%);
+  height: 1.5px;
+  width: 0;
+  background: var(--gold);
+  transition: width 0.5s ease;
+}
+.section-header.visible .section-label::before {
+  animation: lineExpand 0.7s ease 0.4s forwards;
+}
+
+/* Section title animated underline */
+.section-title {
+  position: relative;
+  display: inline-block;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px; left: 0;
+  width: 0; height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+  transition: width 0.6s cubic-bezier(0.4,0,0.2,1);
+  border-radius: 2px;
+}
+.section-header.visible .section-title::after,
+.split-content.visible .section-title::after,
+.about-content.visible .section-title::after {
+  width: 60px;
+}
+.section-title.left::after { left: 0; }
+.section-header .section-title::after { left: 50%; transform: translateX(-50%); }
+
+/* Section header slide up when visible */
+.section-header.visible {
+  animation: fadeInUp 0.65s ease forwards;
+}
+
+/* ──────────────────────────────────────────
+   PRODUCT CARDS — ENHANCED
+────────────────────────────────────────── */
+
+/* Glass reflection sweep on hover */
+.product-card {
+  position: relative;
+  overflow: hidden;
+}
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -80%;
+  width: 60%; height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255,255,255,0.18) 50%,
+    transparent 70%
+  );
+  z-index: 3;
+  pointer-events: none;
+  transition: none;
+}
+.product-card:hover::before {
+  animation: glassReflect 0.65s ease forwards;
+}
+
+/* Staggered visible animations */
+.product-card.visible {
+  animation: fadeInUp 0.6s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+.product-card:nth-child(1).visible { animation-delay: 0.04s; }
+.product-card:nth-child(2).visible { animation-delay: 0.09s; }
+.product-card:nth-child(3).visible { animation-delay: 0.14s; }
+.product-card:nth-child(4).visible { animation-delay: 0.19s; }
+.product-card:nth-child(5).visible { animation-delay: 0.24s; }
+.product-card:nth-child(6).visible { animation-delay: 0.29s; }
+.product-card:nth-child(7).visible { animation-delay: 0.34s; }
+.product-card:nth-child(8).visible { animation-delay: 0.39s; }
+.product-card:nth-child(9).visible { animation-delay: 0.44s; }
+
+/* Product info h3 gold on hover */
+.product-card:hover .product-info h3 {
+  color: var(--gold-dark);
+  transition: color 0.3s ease;
+}
+
+/* Product tag shimmer on card hover */
+.product-card:hover .product-tag {
+  background: linear-gradient(
+    90deg,
+    rgba(201,169,110,0.08) 0%,
+    rgba(240,208,128,0.22) 40%,
+    rgba(201,169,110,0.08) 100%
+  );
+  background-size: 200px 100%;
+  animation: tagShimmer 1.4s linear infinite;
+}
+
+/* Image zoom smoother */
+.product-img-wrap img {
+  transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+}
+.product-card:hover .product-img-wrap img {
+  transform: scale(1.08);
+}
+
+/* Gold bottom border reveal on hover */
+.product-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+  transition: width 0.45s ease;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+.product-card:hover::after { width: 100%; }
+
+/* ──────────────────────────────────────────
+   SPLIT LAYOUT — ENHANCED
+────────────────────────────────────────── */
+.split-layout.visible {
+  animation: fadeInUp 0.7s ease forwards;
+}
+
+/* Image side scale in */
+.split-image {
+  position: relative;
+  overflow: hidden;
+}
+.split-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(201,169,110,0.12) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  border-radius: inherit;
+}
+.split-image:hover::after { opacity: 1; }
+
+/* Gold frame on split image hover */
+.split-image {
+  transition: box-shadow 0.4s ease;
+}
+.split-image:hover {
+  box-shadow: 0 0 0 3px rgba(201,169,110,0.3), var(--shadow-lg);
+}
+
+/* Feature list items stagger on visible */
+.split-content.visible .feature-list li {
+  animation: fadeInLeft 0.5s ease forwards;
+  opacity: 0;
+}
+.split-content.visible .feature-list li:nth-child(1) { animation-delay: 0.1s; }
+.split-content.visible .feature-list li:nth-child(2) { animation-delay: 0.17s; }
+.split-content.visible .feature-list li:nth-child(3) { animation-delay: 0.24s; }
+.split-content.visible .feature-list li:nth-child(4) { animation-delay: 0.31s; }
+.split-content.visible .feature-list li:nth-child(5) { animation-delay: 0.38s; }
+.split-content.visible .feature-list li:nth-child(6) { animation-delay: 0.45s; }
+
+/* Feature list dot pulse on hover */
+.feature-list li::before {
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.feature-list li:hover::before {
+  transform: translateY(-50%) scale(1.6);
+  background: var(--gold-dark);
+}
+.feature-list li {
+  transition: color 0.3s ease, padding-left 0.3s ease;
+}
+.feature-list li:hover {
+  color: var(--text);
+  padding-left: 26px;
+}
+
+/* Button hover enhanced */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 0; height: 0;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  transform: translate(-50%,-50%);
+  transition: width 0.5s ease, height 0.5s ease, opacity 0.5s ease;
+  pointer-events: none;
+}
+.btn:hover::before {
+  width: 300px;
+  height: 300px;
+  opacity: 0;
+}
+
+/* ═══ END PART 2 — paste Part 3 immediately below ═══ */
+   /* ═══════════════════════════════════════════════════════════════
+   ADDON Part 3: Salon, Brands, Wholesale, About, Contact
+═══════════════════════════════════════════════════════════════ */
+
+/* ──────────────────────────────────────────
+   SALON CARDS — ENHANCED
+────────────────────────────────────────── */
+.salon-card.visible {
+  animation: scaleIn 0.6s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+.salon-card:nth-child(1).visible { animation-delay: 0.05s; }
+.salon-card:nth-child(2).visible { animation-delay: 0.14s; }
+.salon-card:nth-child(3).visible { animation-delay: 0.23s; }
+
+/* Image slow zoom on hover */
+.salon-card > img {
+  transition: transform 0.65s cubic-bezier(0.4,0,0.2,1);
+}
+.salon-card:hover > img { transform: scale(1.07); }
+
+/* Card info title gold on hover */
+.salon-card:hover .salon-card-info h3 {
+  color: var(--gold-dark);
+  transition: color 0.3s ease;
+}
+
+/* Salon card bottom gold line reveal */
+.salon-card {
+  position: relative;
+}
+.salon-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+  transition: width 0.4s ease;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+.salon-card:hover::after { width: 100%; }
+
+/* ──────────────────────────────────────────
+   BRANDS — ENHANCED
+────────────────────────────────────────── */
+.brand-card.visible {
+  animation: rotateIn 0.55s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+.brand-card:nth-child(1).visible { animation-delay: 0.04s; }
+.brand-card:nth-child(2).visible { animation-delay: 0.10s; }
+.brand-card:nth-child(3).visible { animation-delay: 0.16s; }
+.brand-card:nth-child(4).visible { animation-delay: 0.22s; }
+.brand-card:nth-child(5).visible { animation-delay: 0.28s; }
+.brand-card:nth-child(6).visible { animation-delay: 0.34s; }
+
+/* Brand text logo shimmer on hover */
+.brand-card:hover .brand-text-logo {
+  background: linear-gradient(90deg, #c9a96e 0%, #f0d080 40%, #a8824a 100%);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmerGold 1.6s linear infinite;
+}
+
+/* Brand card pulse glow on hover */
+.brand-card:hover {
+  animation: pulseGold 1.5s ease infinite;
+}
+
+/* Brand name gold on hover */
+.brand-card:hover .brand-name {
+  color: var(--gold-dark);
+  transition: color 0.3s ease;
+}
+
+/* Brands note shimmer background */
+.brands-note.visible {
+  animation: fadeInUp 0.6s ease 0.2s forwards;
+}
+.brands-note {
+  position: relative;
+  overflow: hidden;
+}
+.brands-note::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%; height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(201,169,110,0.08),
+    transparent
+  );
+  animation: glassReflect 3s ease infinite;
+}
+
+/* ──────────────────────────────────────────
+   WHOLESALE — ENHANCED
+────────────────────────────────────────── */
+.wholesale-card.visible {
+  animation: fadeInUp 0.6s ease forwards;
+}
+.wholesale-card:nth-child(1).visible { animation-delay: 0.04s; }
+.wholesale-card:nth-child(2).visible { animation-delay: 0.12s; }
+.wholesale-card:nth-child(3).visible { animation-delay: 0.20s; }
+.wholesale-card:nth-child(4).visible { animation-delay: 0.28s; }
+
+/* Wholesale number animated count style */
+.wholesale-card.visible .ws-num {
+  animation: wsNumCount 0.7s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+.wholesale-card:nth-child(1).visible .ws-num { animation-delay: 0.1s; }
+.wholesale-card:nth-child(2).visible .ws-num { animation-delay: 0.18s; }
+.wholesale-card:nth-child(3).visible .ws-num { animation-delay: 0.26s; }
+.wholesale-card:nth-child(4).visible .ws-num { animation-delay: 0.34s; }
+
+/* Gold number grow on hover */
+.wholesale-card:hover .ws-num {
+  color: rgba(201,169,110,0.55);
+  transition: color 0.35s ease, transform 0.35s ease;
+  transform: scale(1.08);
+}
+
+/* Card border glow pulse */
+.wholesale-card {
+  transition: transform var(--transition),
+              box-shadow var(--transition),
+              border-color 0.4s ease;
+}
+.wholesale-card:hover {
+  border-color: rgba(201,169,110,0.4);
+  animation: borderGlow 2s ease infinite;
+}
+
+/* Wholesale CTA box enhanced */
+.wholesale-cta {
+  position: relative;
+  overflow: hidden;
+}
+.wholesale-cta::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    rgba(201,169,110,0.06) 0%,
+    transparent 65%
+  );
+  animation: gradientFlow 6s ease infinite;
+  pointer-events: none;
+}
+.wholesale-cta.visible {
+  animation: scaleIn 0.65s ease forwards;
+}
+
+/* ──────────────────────────────────────────
+   ABOUT — ENHANCED
+────────────────────────────────────────── */
+
+/* Image panel slide from left */
+.about-image.visible {
+  animation: fadeInLeft 0.75s cubic-bezier(0.4,0,0.2,1) 0.1s forwards;
+}
+
+/* Content panel slide from right */
+.about-content.visible {
+  animation: fadeInRight 0.75s cubic-bezier(0.4,0,0.2,1) 0.2s forwards;
+}
+
+/* Badge floating animation */
+.about-badge {
+  animation: badgeFloat 4.5s ease-in-out infinite;
+  transform-origin: center;
+}
+.about-badge:hover {
+  animation-play-state: paused;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.18);
+}
+
+/* About image hover gold frame */
+.about-image {
+  transition: box-shadow 0.4s ease;
+}
+.about-image:hover {
+  box-shadow: 0 0 0 4px rgba(201,169,110,0.28), var(--shadow-lg);
+}
+
+/* Highlight bar animated left border */
+.about-highlight {
+  position: relative;
+  overflow: hidden;
+  transition: background 0.4s ease;
+}
+.about-highlight::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 0;
+  background: var(--gold);
+  transition: height 0.5s ease;
+}
+.about-content.visible .about-highlight::before {
+  height: 100%;
+  transition-delay: 0.5s;
+}
+.about-highlight:hover { background: rgba(201,169,110,0.1); }
+
+/* Stats pop animation on visible */
+.about-stats.visible .stat {
+  animation: statPop 0.65s cubic-bezier(0.4,0,0.2,1) forwards;
+  opacity: 0;
+}
+.about-stats.visible .stat:nth-child(1) { animation-delay: 0.1s; }
+.about-stats.visible .stat:nth-child(2) { animation-delay: 0.2s; }
+.about-stats.visible .stat:nth-child(3) { animation-delay: 0.3s; }
+
+/* Stat number gold shimmer */
+.stat:hover strong {
+  background: linear-gradient(90deg, #c9a96e 0%, #f0d080 50%, #a8824a 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmerGold 1.5s linear infinite;
+}
+
+/* ──────────────────────────────────────────
+   CONTACT — ENHANCED
+────────────────────────────────────────── */
+.contact-card.visible {
+  animation: fadeInUp 0.6s ease forwards;
+}
+.contact-card:nth-child(1).visible { animation-delay: 0.05s; }
+.contact-card:nth-child(2).visible { animation-delay: 0.14s; }
+.contact-card:nth-child(3).visible { animation-delay: 0.23s; }
+
+/* Contact icon float on hover */
+.contact-icon {
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1),
+              background 0.35s ease;
+}
+.contact-card:hover .contact-icon {
+  transform: translateY(-6px) scale(1.1);
+  background: rgba(201,169,110,0.12);
+  animation: pulseGold 1.8s ease infinite;
+}
+
+/* Contact card main gold shimmer background */
+.contact-card-main::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%; height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(201,169,110,0.07),
+    transparent
+  );
+  border-radius: inherit;
+  animation: glassReflect 4s ease-in-out infinite;
+  pointer-events: none;
+}
+.contact-card-main { position: relative; overflow: hidden; }
+
+/* Contact link animated arrow */
+.contact-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: gap 0.3s ease, color 0.3s ease;
+}
+.contact-link:hover { gap: 8px; }
+
+/* ═══ END PART 3 — paste Part 4 immediately below ═══ */
+/* ═══════════════════════════════════════════════════════════════
+   ADDON Part 4: Footer, Float WA, Scrollbar, Polish, Responsive
+═══════════════════════════════════════════════════════════════ */
+
+/* ──────────────────────────────────────────
+   FOOTER — ENHANCED
+────────────────────────────────────────── */
+
+/* Footer logo shimmer on hover */
+.footer-logo {
+  display: inline-block;
+  transition: all 0.4s ease;
+  position: relative;
+}
+.footer-logo:hover {
+  background: linear-gradient(90deg, #c9a96e 0%, #f0d080 40%, #c9a96e 100%);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmerGold 1.8s linear infinite;
+}
+
+/* Footer link hover with slide */
+.footer-links a {
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.footer-links a::before {
+  content: '→';
+  position: absolute;
+  left: -18px;
+  opacity: 0;
+  transition: opacity 0.3s ease, left 0.3s ease;
+  color: var(--gold);
+  font-size: 0.8rem;
+}
+.footer-links a:hover {
+  color: #fff;
+  transform: translateX(8px);
+}
+.footer-links a:hover::before {
+  opacity: 1;
+  left: -14px;
+}
+
+/* Footer social icon enhanced hover */
+.footer-socials a {
+  transition: background 0.35s ease,
+              color 0.35s ease,
+              transform 0.35s cubic-bezier(0.4,0,0.2,1),
+              box-shadow 0.35s ease;
+}
+.footer-socials a:hover {
+  background: var(--gold);
+  color: #fff;
+  transform: translateY(-4px) scale(1.12);
+  box-shadow: 0 8px 24px rgba(201,169,110,0.4);
+}
+
+/* Footer bottom text gold on hover */
+.footer-bottom p {
+  transition: color 0.3s ease;
+}
+.footer-bottom p:hover {
+  color: rgba(201,169,110,0.55);
+}
+
+/* Footer reveal animation */
+.footer-brand,
+.footer-links,
+.footer-contact-info {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.footer.in-view .footer-brand { opacity:1; transform:none; transition-delay:0.1s; }
+.footer.in-view .footer-links:nth-child(2) { opacity:1; transform:none; transition-delay:0.2s; }
+.footer.in-view .footer-links:nth-child(3) { opacity:1; transform:none; transition-delay:0.3s; }
+.footer.in-view .footer-contact-info { opacity:1; transform:none; transition-delay:0.4s; }
+
+/* ──────────────────────────────────────────
+   FLOATING WHATSAPP — ENHANCED
+────────────────────────────────────────── */
+.float-wa {
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1),
+              box-shadow 0.35s ease;
+}
+.float-wa:hover {
+  transform: scale(1.14) rotate(-6deg);
+  box-shadow: 0 14px 40px rgba(37,211,102,0.55);
+}
+.float-wa:active {
+  transform: scale(0.96);
+}
+
+/* Tooltip on WA button */
+.float-wa::after {
+  content: 'Chat with us';
+  position: absolute;
+  right: 68px; top: 50%;
+  transform: translateY(-50%);
+  background: #1a1a1a;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.74rem;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 8px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(-50%) translateX(8px);
+}
+.float-wa:hover::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* ──────────────────────────────────────────
+   CUSTOM SCROLLBAR
+────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-alt);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #c9a96e, #a8824a);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #d4af37, #c9a96e);
+}
+
+/* ──────────────────────────────────────────
+   TEXT SELECTION
+────────────────────────────────────────── */
+::selection {
+  background: rgba(201,169,110,0.28);
+  color: var(--text);
+}
+::-moz-selection {
+  background: rgba(201,169,110,0.28);
+  color: var(--text);
+}
+
+/* ──────────────────────────────────────────
+   FOCUS STYLES (Accessibility)
+────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ──────────────────────────────────────────
+   SMOOTH IMAGE LOADING
+────────────────────────────────────────── */
+img {
+  transition: opacity 0.4s ease;
+}
+img[loading="lazy"] {
+  opacity: 0;
+}
+img.loaded,
+img[loading="lazy"].loaded {
+  opacity: 1;
+}
+
+/* Skeleton shimmer before image loads */
+.product-img-wrap,
+.split-image,
+.salon-card > img,
+.about-image {
+  background: linear-gradient(
+    90deg,
+    var(--bg-alt) 25%,
+    #ede8e3 50%,
+    var(--bg-alt) 75%
+  );
+  background-size: 400px 100%;
+  animation: shimmerGold 1.6s ease infinite;
+}
+.product-img-wrap img,
+.split-image img,
+.about-image img {
+  position: relative;
+  z-index: 1;
+}
+
+/* ──────────────────────────────────────────
+   SECTION TRANSITIONS (alternate bg)
+────────────────────────────────────────── */
+.section,
+.section-alt {
+  transition: background 0.4s ease;
+}
+
+/* ──────────────────────────────────────────
+   ABOUT STATS — ADDITIONAL POLISH
+────────────────────────────────────────── */
+.about-stats {
+  padding-top: 24px;
+  border-top: 1px solid rgba(201,169,110,0.18);
+  margin-top: 8px;
+}
+.stat {
+  cursor: default;
+  transition: transform 0.35s ease;
+}
+.stat:hover { transform: translateY(-4px); }
+
+/* Stat divider lines */
+.stat:not(:last-child) {
+  padding-right: 32px;
+  border-right: 1px solid rgba(201,169,110,0.2);
+}
+
+/* ──────────────────────────────────────────
+   WHOLESALE CTA BUTTONS
+────────────────────────────────────────── */
+.cta-group .btn {
+  min-width: 180px;
+  justify-content: center;
+}
+
+/* ──────────────────────────────────────────
+   PRODUCT INFO SPACING POLISH
+────────────────────────────────────────── */
+.product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.product-info h3 {
+  transition: color 0.3s ease;
+  margin-bottom: 10px;
+}
+.product-info p { margin-bottom: 16px; }
+
+/* ──────────────────────────────────────────
+   RESPONSIVE ADDON — TABLET
+────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .about-stats {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .stat:not(:last-child) {
+    border-right: none;
+    padding-right: 0;
+  }
+  .float-wa::after { display: none; }
+}
+
+/* ──────────────────────────────────────────
+   RESPONSIVE ADDON — MOBILE
+────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Simpler animations on mobile for performance */
+  .product-card::before,
+  .salon-card::after,
+  .product-card::after { display: none; }
+
+  .hero-bg { animation: none; }
+  .hero-tagline { animation: fadeInUp 0.8s ease 0.3s both; }
+  .hero-title   { animation: fadeInUp 0.8s ease 0.5s both; }
+  .hero-sub     { animation: fadeInUp 0.8s ease 0.7s both; }
+  .hero-cta .btn:nth-child(1) { animation: fadeInUp 0.7s ease 0.85s both; }
+  .hero-cta .btn:nth-child(2) { animation: fadeInUp 0.7s ease 0.95s both; }
+
+  .about-image.visible  { animation: fadeInUp 0.65s ease 0.1s forwards; }
+  .about-content.visible { animation: fadeInUp 0.65s ease 0.2s forwards; }
+
+  .split-content.visible .feature-list li {
+    animation: fadeInUp 0.45s ease forwards;
+  }
+
+  /* Scrollbar thinner on mobile */
+  ::-webkit-scrollbar { width: 4px; }
+
+  /* WA tooltip hidden on mobile */
+  .float-wa::after { display: none; }
+
+  /* Stat borders removed on mobile */
+  .stat:not(:last-child) {
+    border-right: none;
+    padding-right: 0;
+  }
+}
+
+/* ──────────────────────────────────────────
+   PRINT — hide non-content
+────────────────────────────────────────── */
+@media print {
+  .navbar, .float-wa, #scroll-progress,
+  .hero-scroll-hint, .grad-divider { display: none; }
+  .hero { height: auto; padding: 40px 0; }
+  .hero-bg { display: none; }
+  .hero-overlay { display: none; }
+  .hero-content { color: #000; }
+}
+
+/* ──────────────────────────────────────────
+   REDUCED MOTION — Accessibility
+────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .hero-bg       { animation: none !important; }
+  .about-badge   { animation: none !important; }
+  .float-wa::before { animation: none !important; }
+  .grad-divider  { animation: none !important; }
+  #scroll-progress { animation: none !important; }
+}
