@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bombay Fashion Beauty Zone</title>
+
+<link rel="manifest" href="manifest.json" />
+
+<link rel="stylesheet" href="style.css" />
+
+<style>
+/* 🔥 BASIC FIXES (layout टूटने का main reason) */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family: 'Montserrat', sans-serif;
+  background:#f8f5f2;
+  color:#111;
+}
+
+/* NAVBAR */
+.navbar{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:#fff;
+  z-index:1000;
+  box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
+
+.nav-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 20px;
+}
+
+.nav-logo{
+  font-family:'Playfair Display', serif;
+  font-size:18px;
+  font-weight:600;
+}
+
+.nav-menu{
+  display:flex;
+  gap:20px;
+}
+
+.nav-link{
+  text-decoration:none;
+  color:#000;
+}
+
+/* HERO */
+.hero{
+  margin-top:70px;
+  height:80vh;
+  position:relative;
+}
+
+.hero-img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.hero-content{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  text-align:center;
+  color:#fff;
+}
+
+/* PRODUCTS GRID FIX */
+.products-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:20px;
+  padding:20px;
+}
+
+.product-card{
+  background:#fff;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+
+.product-img-wrap{
+  width:100%;
+  height:180px;
+}
+
+.product-img-wrap img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* TEXT FIX */
+.product-info{
+  padding:10px;
+  text-align:center;
+}
+
+/* BUTTONS */
+.btn{
+  display:inline-block;
+  padding:10px 20px;
+  background:#000;
+  color:#fff;
+  border-radius:25px;
+  text-decoration:none;
+  margin:5px;
+}
+
+/* MOBILE FIX */
+@media(max-width:600px){
+  .nav-menu{
+    display:none;
+  }
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo">Bombay Beauty</div>
+    <nav class="nav-menu">
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#products" class="nav-link">Products</a>
+      <a href="#salon" class="nav-link">Salon</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1800" class="hero-img">
+  <div class="hero-content">
+    <h1>Professional Cosmetic</h1>
+    <p>Wholesaler & Retailer</p>
+
+    <a href="tel:9818804433" class="btn">Call</a>
+    <a href="https://wa.me/919818804433" class="btn">WhatsApp</a>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="products-grid">
+
+    <div class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=600">
+      </div>
+      <div class="product-info"><h3>Hair Serum</h3></div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://images.unsplash.com/photo-1600180758890-6b94519a8ba6?w=600">
+      </div>
+      <div class="product-info"><h3>Shampoo</h3></div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://images.unsplash.com/photo-1612810806563-4cb8265db55f?w=600">
+      </div>
+      <div class="product-info"><h3>Conditioner</h3></div>
+    </div>
+
+    <!-- 🔥 HAIR COLOR FIX (यह वाला important) -->
+    <div class="product-card">
+      <div class="product-img-wrap">
+        <img src="https://images.unsplash.com/photo-1620336655055-b57986f36f63?w=600" loading="lazy" onerror="this.style.display='none'">
+      </div>
+      <div class="product-info"><h3>Hair Color</h3></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="padding:40px;text-align:center;">
+  <h2>Contact</h2>
+  <p>Call or WhatsApp for orders</p>
+
+  <a href="tel:9818804433" class="btn">Call Now</a>
+  <a href="https://wa.me/919818804433" class="btn">WhatsApp</a>
+</section>
+
+</body>
+</html>
