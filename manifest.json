@@ -1,0 +1,39 @@
+{
+  "name": "Bombay Fashion Beauty Zone",
+  "short_name": "BFBZ",
+  "description": "Wholesaler and Retailer of Salon Items and Cosmetics",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f8f5f2",
+  "theme_color": "#f8f5f2",
+  "orientation": "portrait-primary",
+  "scope": "./",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["shopping", "lifestyle", "beauty"],
+  "shortcuts": [
+    {
+      "name": "Call Us",
+      "url": "tel:9818804433",
+      "description": "Call Bombay Fashion Beauty Zone"
+    },
+    {
+      "name": "WhatsApp",
+      "url": "https://wa.me/919818804433",
+      "description": "WhatsApp us for orders"
+    }
+  ]
+}
