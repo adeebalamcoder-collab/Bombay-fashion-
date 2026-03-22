@@ -1,0 +1,41 @@
+{
+  "name": "Bombay Fashion Beauty Zone",
+  "short_name": "BFBZ",
+  "description": "Professional Wholesaler and Retailer of Salon Items and Cosmetics. All leading brands available.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f8f5f2",
+  "theme_color": "#f8f5f2",
+  "lang": "en",
+  "categories": ["shopping", "beauty", "business"],
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='100' fill='%230d0d0d'/%3E%3Cg stroke='%23d4af37' stroke-width='20' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='180' y1='120' x2='340' y2='280'/%3E%3Cline x1='340' y1='120' x2='180' y2='280'/%3E%3Ccircle cx='170' cy='330' r='60'/%3E%3Ccircle cx='340' cy='330' r='60'/%3E%3Ccircle cx='260' cy='250' r='12' fill='%23d4af37'/%3E%3C/g%3E%3C/svg%3E",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='100' fill='%230d0d0d'/%3E%3Cg stroke='%23d4af37' stroke-width='20' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='180' y1='120' x2='340' y2='280'/%3E%3Cline x1='340' y1='120' x2='180' y2='280'/%3E%3Ccircle cx='170' cy='330' r='60'/%3E%3Ccircle cx='340' cy='330' r='60'/%3E%3Ccircle cx='260' cy='250' r='12' fill='%23d4af37'/%3E%3C/g%3E%3C/svg%3E",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Call Us",
+      "short_name": "Call",
+      "description": "Call Bombay Fashion Beauty Zone",
+      "url": "tel:9818804433"
+    },
+    {
+      "name": "WhatsApp",
+      "short_name": "WhatsApp",
+      "description": "Message us on WhatsApp",
+      "url": "https://wa.me/919818804433"
+    }
+  ]
+}
