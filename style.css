@@ -2153,3 +2153,16 @@ img {
 /* ═══════════════════════════════════════════════════════════════════
    END OF style.css  —  Bombay Fashion Beauty Zone  v3 Premium
 ═══════════════════════════════════════════════════════════════════ */
+/* RETAIL IMAGE FIX */
+.split-image {
+  min-height: 280px;
+}
+.split-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  opacity: 1 !important;
+  display: block !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
